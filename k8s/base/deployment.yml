@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,9 +30,8 @@ spec:
         - name: client
           image: client:1.0.0
           imagePullPolicy: IfNotPresent
-          command: ["/home/node/.npm-global/bin/serve", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
           securityContext:
-            runAsUser: 1000
+            runAsUser: 1000 # node
             runAsNonRoot: true
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
