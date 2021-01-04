@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - client
+              topologyKey: "kubernetes.io/hostname"
+
+      containers:
+        - name: client
+          image: client:1.0.0
+          imagePullPolicy: IfNotPresent
+          command: ["/home/node/.npm-global/bin/serve", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
+          securityContext:
+            runAsUser: 1000
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          ports:
+            - name: http-port
+              containerPort: 3000
+          resources:
+            limits:
+              cpu: 50m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http-port
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            failureThreshold: 5
+            successThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http-port
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            failureThreshold: 5
+            successThreshold: 1

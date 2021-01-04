@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cra-client
+spec:
+  selector:
+    app: cra-client
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: http-port
