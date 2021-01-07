@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: client
 resources:
-  - deployment.yaml
-  - hpa.yaml
-  - service.yaml
+- deployment.yaml
+- hpa.yaml
+- service.yaml
 
 images:
 - name: IMAGE_NAME
   newName: ghcr.io/terotuomala/client
-  newTag: 1a1bfe8c40f6b0527e33cfa93212d76924fe4ce1
+  newTag: 04ef91dfcdb903b106788f18d780587c3b7dfd88
