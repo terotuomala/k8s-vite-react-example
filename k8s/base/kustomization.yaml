@@ -9,4 +9,4 @@ resources:
 images:
 - name: IMAGE_NAME
   newName: ghcr.io/terotuomala/client
-  newTag: 04ef91dfcdb903b106788f18d780587c3b7dfd88
+  newTag: 820f66f6074835819122e1ee55f57393787debeb
