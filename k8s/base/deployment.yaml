@@ -28,7 +28,7 @@ spec:
 
       containers:
         - name: client
-          image: client:1.0.0
+          image: ghcr.io/terotuomala/client:1a1bfe8c40f6b0527e33cfa93212d76924fe4ce1
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 1000 # node
