@@ -4,3 +4,4 @@ namespace: client
 resources:
   - namespace.yaml
   - ../base/
+  
