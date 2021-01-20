@@ -4,10 +4,14 @@
 [![Vulnerability Scan](https://github.com/terotuomala/k8s-create-react-app-example/workflows/vulnerability-scan/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 [![Lint](https://github.com/terotuomala/k8s-create-react-app-example/workflows/lint/badge.svg)](https://github.com/terotuomala/k8s-express-api-example/actions)
 
+A simple Single-page Application example using Create React App running in Kubernetes.
+
+**NB.** this project is a part of [GitOps workflow example using Flux2](https://github.com/terotuomala/gitops-flux2-example) which includes Kubernetes manifests for NGINX Ingress Controller as well as handles Continuous Delivery.
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents 
-* [Features](#features)
-* [Kubernetes Objects](#kubernetes-objects)
+* [Features](#rocket-features)
+* [Kubernetes Objects](#blue_book-kubernetes-objects)
 * [Kustomize configuration](#kustomize-configuration)
 * [Usage](#usage)
 
