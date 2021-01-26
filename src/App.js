@@ -1,5 +1,6 @@
 import React from 'react'
 import Emoji from './Emoji'
+import FadeIn from './FadeIn'
 import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
@@ -23,8 +24,10 @@ const App = () => {
           {data.data.map((element) => (
             <React.Fragment key={element.name}>
               <ul className="card">
+              <FadeIn delay={250} duration={1000}>
                 <li><a href={element.html_url}>{element.full_name}</a></li>
                 <li><em>{element.stargazers_count}</em> <Emoji symbol="⭐"/> </li>
+              </FadeIn>
               </ul>
             </React.Fragment>
           ))}
