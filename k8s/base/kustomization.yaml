@@ -5,8 +5,3 @@ resources:
 - deployment.yaml
 - hpa.yaml
 - service.yaml
-
-images:
-- name: IMAGE_NAME
-  newName: ghcr.io/terotuomala/client
-  newTag: a60df34fe2aae43467f94fedef7ece74198bff85
