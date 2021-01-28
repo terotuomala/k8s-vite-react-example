@@ -1,15 +1,18 @@
-FROM node:14-alpine AS build
-
-RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
-
-# Install node-prune (https://github.com/tj/node-prune)
-RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+FROM node:14-alpine AS base
 
 COPY package*.json ./
 
 RUN npm ci
 
 COPY . .
+
+
+FROM base AS build
+
+RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
+
+# Install node-prune (https://github.com/tj/node-prune)
+RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
 
 RUN npm run build
 
