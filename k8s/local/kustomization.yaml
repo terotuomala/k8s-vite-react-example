@@ -5,6 +5,14 @@ resources:
   - namespace.yaml
   - ../base/
 
+patchesJson6902:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: client
+  path: deployment-patch.yaml
+
 images:
 - name: IMAGE_NAME
   newName: k3d-skaffold-example-registry:35565/client
