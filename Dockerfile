@@ -1,18 +1,15 @@
-FROM node:14-alpine AS base
-
-COPY package*.json ./
-
-RUN npm ci
-
-COPY . .
-
-
-FROM base AS build
+FROM node:14-alpine@sha256:51e341881c2b77e52778921c685e711a186a71b8c6f62ff2edfc6b6950225a2f as base
 
 RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
 
 # Install node-prune (https://github.com/tj/node-prune)
 RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm ci
+
+COPY . .
 
 RUN npm run build
 
@@ -22,8 +19,7 @@ RUN npm prune --production
 # Run node prune
 RUN /usr/local/bin/node-prune
 
-
-FROM node:14-alpine AS release
+FROM node:14-alpine@sha256:51e341881c2b77e52778921c685e711a186a71b8c6f62ff2edfc6b6950225a2f AS release
 
 # Switch to non-root user uid=1000(node)
 USER node
