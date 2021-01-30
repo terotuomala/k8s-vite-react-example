@@ -11,24 +11,8 @@
     "packageRules": [
       {
         "datasources": ["docker"],
-        "updateTypes": ["major"],
-        "labels": ["renovate/image-release", "dependency/major"]
-      },
-      {
-        "datasources": ["docker"],
-        "updateTypes": ["minor"],
-        "labels": ["renovate/image-release", "dependency/minor"]
-      },
-      {
-        "datasources": ["docker"],
-        "updateTypes": ["patch"],
-        "labels": ["renovate/image-release", "dependency/patch"]
-      },
-      {
-        "datasources": ["docker"],
-        "automerge": true,
-        "requiredStatusChecks": null,
-        "updateTypes": ["minor", "patch"],
+        "updateTypes": ["digest"],
+        "labels": ["renovate/image-release", "dependency/digest"],
         "packageNames": [
           "node/14-alpine"
         ]
@@ -36,8 +20,7 @@
       {
         "datasources": ["npm"],
         "updateTypes": ["minor", "patch"],
-        "matchCurrentVersion": "!/^0/",
-        "automerge": true
+        "matchCurrentVersion": "!/^0/"
       }
     ]
   }
