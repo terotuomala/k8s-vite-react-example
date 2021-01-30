@@ -4,4 +4,8 @@ namespace: client
 resources:
   - namespace.yaml
   - ../base/
-  
+
+images:
+- name: IMAGE_NAME
+  newName: ghcr.io/terotuomala/client
+  newTag: 5e7dbe06e256b14260dbb5ba74dc045f5e96493f
