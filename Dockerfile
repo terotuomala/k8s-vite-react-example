@@ -1,4 +1,4 @@
-FROM node:14-alpine@sha256:2ae9624a39ce437e7f58931a5747fdc60224c6e40f8980db90728de58e22af7c as base
+FROM node:14-alpine@sha256:2ae9624a39ce437e7f58931a5747fdc60224c6e40f8980db90728de58e22af7c as build
 
 RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
 
