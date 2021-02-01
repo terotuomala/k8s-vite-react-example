@@ -9,14 +9,14 @@ A simple Single-page Application example using Create React App designed to be r
 > **NB.** this project is a part of [GitOps workflow example using Flux2](https://github.com/terotuomala/gitops-flux2-example) which includes Kubernetes manifests for NGINX Ingress Controller as well as handles Continuous Delivery.
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents 
+## Table of Contents
 * [Features](#rocket-features)
 * [Kubernetes Objects](#blue_book-kubernetes-objects)
 * [Kustomize configuration](#kustomize-configuration)
 * [Usage](#usage)
 
 <!-- FEATURES -->
-## :rocket: Features 
+## :rocket: Features
 - Kubernetes configuration customization using [Kustomize](https://github.com/kubernetes-sigs/kustomize)
 - Continuous Delivery with GitOps workflow using [Flux2](https://github.com/fluxcd/flux2)
 - Progressive delivery with canary releases using [Flagger](https://github.com/weaveworks/flagger)

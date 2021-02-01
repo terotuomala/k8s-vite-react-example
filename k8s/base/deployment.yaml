@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,38 +28,37 @@ spec:
               topologyKey: "kubernetes.io/hostname"
 
       containers:
-        - name: client
-          image: IMAGE_NAME
-          imagePullPolicy: IfNotPresent
-          securityContext:
-            runAsUser: 1000 # node
-            runAsNonRoot: true
-            readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
-          ports:
-            - name: http-port
-              containerPort: 3000
-          resources:
-            limits:
-              cpu: 50m
-              memory: 128Mi
-            requests:
-              cpu: 10m
-              memory: 64Mi
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http-port
-            initialDelaySeconds: 20
-            periodSeconds: 10
-            failureThreshold: 5
-            successThreshold: 1
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http-port
-            initialDelaySeconds: 20
-            periodSeconds: 10
-            failureThreshold: 5
-            successThreshold: 1
-            
+      - name: client
+        image: IMAGE_NAME
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsUser: 1000 # node
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+        ports:
+        - name: http-port
+          containerPort: 3000
+        resources:
+          limits:
+            cpu: 50m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http-port
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 5
+          successThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http-port
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 5
+          successThreshold: 1

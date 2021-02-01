@@ -18,17 +18,4 @@ jobs:
       uses: ibiqlik/action-yamllint@v3
       with:
         file_or_dir: "./k8s"
-        config_data: |
-          extends: default
-          rules:
-            truthy:
-              allowed-values: ['true', 'false', 'on', 'yes']
-            comments:
-              min-spaces-from-content: 1
-            line-length: disable
-            braces:
-              min-spaces-inside: 0
-              max-spaces-inside: 1
-            brackets:
-              min-spaces-inside: 0
-              max-spaces-inside: 0
+        config_file: "./.github/yamllint.config.yaml"

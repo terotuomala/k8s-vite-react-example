@@ -41,5 +41,3 @@ COPY --chown=node:node --from=build /serve.json ./build
 EXPOSE 3000
 
 CMD ["/home/node/.npm-global/bin/serve", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
-
-
