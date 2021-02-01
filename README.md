@@ -3,7 +3,7 @@
 [![Build and Release](https://github.com/terotuomala/k8s-create-react-app-example/workflows/build-and-release/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 [![Vulnerability Scan](https://github.com/terotuomala/k8s-create-react-app-example/workflows/vulnerability-scan/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 [![Lint](https://github.com/terotuomala/k8s-create-react-app-example/workflows/lint/badge.svg)](https://github.com/terotuomala/k8s-express-api-example/actions)
-[![Renovate](https://badges.renovateapi.com/github/username/your-repo-name)](https://renovatebot.com/)
+[![Renovate](https://badges.renovateapi.com/terotuomala/k8s-create-react-app-example)](https://renovatebot.com/)
 
 A simple Single-page Application example using Create React App designed to be running in Kubernetes.
 
