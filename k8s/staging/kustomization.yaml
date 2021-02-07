@@ -6,20 +6,20 @@ resources:
 - ../base/
 
 patchesJson6902:
-  - target:
-      group: autoscaling
-      version: v2beta1
-      kind: HorizontalPodAutoscaler
-      name: client
-    path: hpa-patch.yaml
-  - target:
-      group: policy
-      version: v1beta1
-      kind: PodDisruptionBudget
-      name: client
-    path: pdb-patch.yaml
+- path: hpa-patch.yaml
+  target:
+    group: autoscaling
+    kind: HorizontalPodAutoscaler
+    name: client
+    version: v2beta1
+- path: pdb-patch.yaml
+  target:
+    group: policy
+    kind: PodDisruptionBudget
+    name: client
+    version: v1beta1
 
 images:
 - name: IMAGE_NAME
   newName: ghcr.io/terotuomala/client
-  newTag: 33e0398ae0191121b6865bf2bdf4892a38f1f690
+  newTag: 58eb2640b55534ebc77a668692adf9956eba05eb
