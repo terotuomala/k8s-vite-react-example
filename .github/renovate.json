@@ -19,8 +19,7 @@
       },
       {
         "datasources": ["npm"],
-        "updateTypes": ["minor", "patch"],
-        "matchCurrentVersion": "!/^0/"
+        "updateTypes": ["minor", "patch"]
       }
     ]
   }
