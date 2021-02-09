@@ -1,10 +1,10 @@
-# K8s Create React App Example
+# Kubernetes Create React App Example
 
 [![Build and Release](https://github.com/terotuomala/k8s-create-react-app-example/workflows/build-and-release/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 [![Vulnerability Scan](https://github.com/terotuomala/k8s-create-react-app-example/workflows/vulnerability-scan/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
-[![Lint](https://github.com/terotuomala/k8s-create-react-app-example/workflows/lint/badge.svg)](https://github.com/terotuomala/k8s-express-api-example/actions)
+[![Lint](https://github.com/terotuomala/k8s-create-react-app-example/workflows/lint/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 
-A simple Single-page Application example using Create React App designed to be running in Kubernetes.
+A simple example Single-page Application using Create React App running in Kubernetes.
 
 > **NB.** this project is a part of [GitOps workflow example using Flux2](https://github.com/terotuomala/gitops-flux2-example) which includes Kubernetes manifests for NGINX Ingress Controller as well as handles Continuous Delivery.
 
@@ -17,12 +17,14 @@ A simple Single-page Application example using Create React App designed to be r
 
 <!-- FEATURES -->
 ## :rocket: Features
+- Optimized Dockerfile using multi-stage builds
+- SHA pinned Docker image tags with automated update using [Renovate](https://docs.renovatebot.com)
+- Automated vulnerability scan of the Dockerfile using GitHub Actions
 - Kubernetes configuration customization using [Kustomize](https://github.com/kubernetes-sigs/kustomize)
 - Continuous Delivery with GitOps workflow using [Flux2](https://github.com/fluxcd/flux2)
 - Progressive delivery with canary releases using [Flagger](https://github.com/weaveworks/flagger)
 - Kubernetes configuration best practises using [Kyverno](https://github.com/kyverno/kyverno)
 - Network traffic flow control using [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
-- Kubernetes Secrets using [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
 - Kubernetes manifest validation using [pre-commit](https://github.com/pre-commit/pre-commit)
 
 <!-- KUBERNETES OBJECTS -->
@@ -48,14 +50,18 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
 ├── base
 │   ├── deployment.yaml
 │   ├── hpa.yaml
+│   ├── ingress.yaml
 │   ├── kustomization.yaml
+│   ├── pdb.yaml
 │   └── service.yaml
 ├── production
 │   ├── kustomization.yaml
 │   └── namespace.yaml
 └── staging
+    ├── hpa-patch.yaml
     ├── kustomization.yaml
-    └── namespace.yaml
+    ├── namespace.yaml
+    └── pdb-patch.yaml
 ```
 
 ## Usage
