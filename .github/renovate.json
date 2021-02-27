@@ -8,18 +8,29 @@
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "assignees": ["@terotuomala"],
+
+    "extends": [
+      "config:base"
+    ],
+
     "packageRules": [
       {
-        "datasources": ["docker"],
-        "updateTypes": ["digest"],
+        "matchDatasources": ["docker"],
+        "matchPackageNames": ["node/14-alpine"],
+        "matchUpdateTypes": ["digest"],
+        "commitMessageTopic": "container image {{depName}}",
+        "commitMessageExtra": "to {{#if isSingleVersion}}v{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}",
         "labels": ["renovate/image-release", "dependency/digest"],
-        "packageNames": [
-          "node/14-alpine"
-        ]
+        "pinDigests": true,
+        "enabled": true
+        
       },
       {
-        "datasources": ["npm"],
-        "updateTypes": ["minor", "patch"]
+        "matchDatasources": ["npm"],
+        "updateTypes": ["minor", "patch"],
+        "enabled": true
       }
     ]
   }
+    
+    

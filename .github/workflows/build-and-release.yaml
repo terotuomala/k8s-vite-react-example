@@ -1,3 +1,4 @@
+---
 name: build-and-release
 
 on:
@@ -10,12 +11,12 @@ on:
 env:
     IMAGE_NAME_PREFIX: ${{ github.repository_owner }}/client
     IMAGE_NAME_GHCR_PREFIX: ghcr.io/${{ github.repository_owner }}/client
-    KUSTOMIZE_VERSION: v3.9.1
+    KUSTOMIZE_VERSION: v3.9.4
 
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     steps:
@@ -47,7 +48,7 @@ jobs:
 
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
