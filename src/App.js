@@ -5,7 +5,7 @@ import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
 const App = () => {
-  const { state, error, data, responseTime } = useApi('http://api.127.0.0.1.xip.io/api/v1/search')
+  const { state, error, data, responseTime } = useApi('http://api.127.0.0.1.xip.io/api/v1')
 
   switch (state) {
     case apiStates.ERROR:
