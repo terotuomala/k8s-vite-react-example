@@ -5,7 +5,7 @@ import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
 const App = () => {
-  const { state, error, data, responseTime } = useApi('http://api.localhost/api/v1')
+  const { state, error, data, responseTime } = useApi('http://api.localhost:8080/api/v1')
 
   switch (state) {
     case apiStates.ERROR:
