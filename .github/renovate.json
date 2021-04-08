@@ -23,7 +23,7 @@
         "labels": ["renovate/image-release", "dependency/digest"],
         "pinDigests": true,
         "enabled": true
-        
+
       },
       {
         "matchDatasources": ["npm"],
@@ -32,5 +32,3 @@
       }
     ]
   }
-    
-    
