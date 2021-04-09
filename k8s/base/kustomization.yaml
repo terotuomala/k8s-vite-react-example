@@ -10,4 +10,3 @@ resources:
 - netpol-ingress.yaml
 - pdb.yaml
 - service.yaml
-- canary.yaml
