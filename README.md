@@ -11,6 +11,7 @@ A simple example Single-page Application using Create React App running in Kuber
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 * [Features](#rocket-features)
+* [Overview](#overview)
 * [Kustomize configuration](#pencil-kustomize-configuration)
 * [Usage](#joystick-usage)
 
@@ -19,12 +20,14 @@ A simple example Single-page Application using Create React App running in Kuber
 - Optimized Dockerfile using multi-stage builds
 - SHA pinned Docker image tags with automated update using [Renovate](https://docs.renovatebot.com)
 - Automated vulnerability scan of the Docker image and npm dependencies using [Trivy](https://github.com/aquasecurity/trivy)
+- YAML validation using [yamllint](https://github.com/adrienverge/yamllint)
+- Static file Caching utilizing [long term caching techniques](https://create-react-app.dev/docs/production-build/#static-file-caching) using [serve](https://github.com/vercel/serve)
 - Kubernetes configuration customization using [Kustomize](https://github.com/kubernetes-sigs/kustomize)
-- Continuous Delivery with GitOps workflow using [Flux2](https://github.com/fluxcd/flux2)
-- Progressive delivery with canary releases using [Flagger](https://github.com/weaveworks/flagger)
-- Kubernetes configuration best practises using [Kyverno](https://github.com/kyverno/kyverno)
 - Network traffic flow control using [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
-- Kubernetes manifest validation using [pre-commit](https://github.com/pre-commit/pre-commit)
+
+<!-- OVERVIEW -->
+## :mag: Overview
+In a nutshell the application provides a user interface for displaying most popular GitHub repositories which the [REST API](https://github.com/terotuomala/k8s-express-api-example) offers.
 
 ## :pencil: Kustomize configuration
 Kustomize configuration is based on [Directory Structure Based Layout](https://kubectl.docs.kubernetes.io/pages/app_composition_and_deployment/structure_directories.html) in order to use staging and production environments with different configuration.
@@ -35,6 +38,8 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
 │   ├── hpa.yaml
 │   ├── ingress.yaml
 │   ├── kustomization.yaml
+│   ├── netpol-egress.yaml
+│   ├── netpol-ingress.yaml
 │   ├── pdb.yaml
 │   └── service.yaml
 ├── production
