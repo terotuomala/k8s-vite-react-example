@@ -13,7 +13,7 @@ A simple example Single-page Application using Create React App running in Kuber
 * [Features](#rocket-features)
 * [Overview](#overview)
 * [Kustomize configuration](#pencil-kustomize-configuration)
-* [Usage](#joystick-usage)
+* [Local development](#local-development)
 
 <!-- FEATURES -->
 ## :rocket: Features
@@ -52,4 +52,9 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
     └── pdb-patch.yaml
 ```
 
-## :joystick: Usage
+<!-- LOCAL DEVELOPMENT -->
+## :keyboard: Local development
+Start the app in development mode which will automatically reload if you make changes to the code:
+```sh
+$ npm start
+```
