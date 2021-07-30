@@ -1,11 +1,27 @@
 import React from 'react'
 import Emoji from './Emoji'
-import FadeIn from './FadeIn'
+import { motion } from 'framer-motion'
+import CountUp from 'react-countup'
 import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
 const App = () => {
   const { state, error, data, responseTime } = useApi('http://api.localhost:8080/api/v1')
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5
+      }
+    }
+  }
+  
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 }
+  }
 
   switch (state) {
     case apiStates.ERROR:
@@ -17,22 +33,25 @@ const App = () => {
 
     case apiStates.SUCCESS:
       return (
-        <div className="container">
-          <h2>Most popular public GitHub repositories</h2>
-          <div className="grid">
-          <p>(Execution time for fetching data from API took <strong><em>{responseTime} ms</em></strong>)</p>
-          {data.data.map((element) => (
-            <React.Fragment key={element.name}>
-              <ul className="card">
-              <FadeIn delay={250} duration={1000}>
-                <li><a href={element.html_url}>{element.full_name}</a></li>
-                <li><em>{element.stargazers_count}</em> <Emoji symbol="⭐"/> </li>
-              </FadeIn>
-              </ul>
-            </React.Fragment>
-          ))}
-          </div>
-        </div>
+        <React.Fragment>
+          <motion.div animate={{ x: 100, scale: [4, 1], rotate: [0, 0, 0, 0, 0] }} transition={{ duration: 2 }}>
+            <div className="container">
+              <h2>Most popular public GitHub repositories</h2>
+              <div className="grid">
+              <p>Execution time for fetching data from API took</p>
+              <motion.p initial={{ x: 50 }} animate={{ x: 10, rotate: [100, 100, 50, 50, 0] }} transition={{ duration: 4 }}><strong><CountUp delay={2} duration={1} end={responseTime}>{responseTime}</CountUp> ms</strong></motion.p>
+                {data.data.map((element) => (
+                  <React.Fragment key={element.name}>
+                    <motion.ul variants={container} initial="hidden" animate="show" className="card">
+                      <motion.li variants={item}><a href={element.html_url}>{element.full_name}</a></motion.li>
+                      <motion.li initial={{ x: 10 }} animate={{ x: 0 }} variants={item}><em><CountUp delay={0} duration={3} end={element.stargazers_count}>{element.stargazers_count}</CountUp></em> <Emoji symbol="⭐"/> </motion.li>
+                    </motion.ul>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </React.Fragment>
       )
 
     default:

@@ -11,9 +11,9 @@ A simple example Single-page Application using Create React App running in Kuber
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 * [Features](#rocket-features)
-* [Overview](#overview)
+* [Overview](#mag-overview)
 * [Kustomize configuration](#pencil-kustomize-configuration)
-* [Local development](#local-development)
+* [Local development](#keyboard-local-development)
 
 <!-- FEATURES -->
 ## :rocket: Features
