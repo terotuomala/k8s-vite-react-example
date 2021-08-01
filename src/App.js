@@ -5,8 +5,10 @@ import CountUp from 'react-countup'
 import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
+const apiUrl = process.env.NODE_ENV === 'development' ? 'http://api.localhost:3001/api/v1' : 'http://api.localhost:8080/api/v1'
+
 const App = () => {
-  const { state, error, data, responseTime } = useApi('http://api.localhost:8080/api/v1')
+  const { state, error, data, responseTime } = useApi(apiUrl)
 
   const container = {
     hidden: { opacity: 0 },
@@ -44,7 +46,7 @@ const App = () => {
                   <React.Fragment key={element.name}>
                     <motion.ul variants={container} initial="hidden" animate="show" className="card">
                       <motion.li variants={item}><a href={element.html_url}>{element.full_name}</a></motion.li>
-                      <motion.li initial={{ x: 10 }} animate={{ x: 0 }} variants={item}><em><CountUp delay={0} duration={3} end={element.stargazers_count}>{element.stargazers_count}</CountUp></em> <Emoji symbol="⭐"/> </motion.li>
+                      <motion.li variants={item}><em>{element.stargazers_count}</em> <Emoji symbol="⭐"/> </motion.li>
                     </motion.ul>
                   </React.Fragment>
                 ))}
