@@ -5,10 +5,8 @@ import CountUp from 'react-countup'
 import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
-const apiUrl = process.env.NODE_ENV === 'development' ? 'http://api.localhost:3001/api/v1' : 'http://api.localhost:8080/api/v1'
-
 const App = () => {
-  const { state, error, data, responseTime } = useApi(apiUrl)
+  const { state, error, data, responseTime } = useApi(process.env.REACT_APP_API_URL)
 
   const container = {
     hidden: { opacity: 0 },
