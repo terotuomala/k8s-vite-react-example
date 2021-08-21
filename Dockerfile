@@ -7,14 +7,11 @@ RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash 
 
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm ci
+RUN npm ci --production
 
 COPY . .
 
 RUN npm run build
-
-# Remove development dependencies
-RUN npm prune --production
 
 # Run node prune
 RUN /usr/local/bin/node-prune
