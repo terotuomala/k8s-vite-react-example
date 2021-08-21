@@ -1,3 +1,10 @@
+.github
 build
+k8s
 node_modules
+.env-development
+.gitignore
+.pre-commit-config.yaml
+LICENSE
 README.md
+
