@@ -27,6 +27,7 @@
       },
       {
         "matchDatasources": ["npm"],
+        "matchDepTypes": ["dependencies", "devDependencies"],
         "updateTypes": ["minor", "patch"],
         "enabled": true
       }
