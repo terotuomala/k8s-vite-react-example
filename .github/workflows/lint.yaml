@@ -26,11 +26,16 @@ jobs:
       with:
         file_or_dir: "./k8s"
         config_file: "./.github/yamllint.config.yaml"
+    
+    - name: Scan k8s manifests with kube-linter
+      uses: stackrox/kube-linter-action@v1.0.2
+      with:
+        directory: "./k8s"
 
-    - name: Setup Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js ${{ matrix.node }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ matrix.node }}
 
     - name: Install dependencies
       run: npm ci
