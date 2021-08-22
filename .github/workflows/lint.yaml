@@ -26,7 +26,7 @@ jobs:
       with:
         file_or_dir: "./k8s"
         config_file: "./.github/yamllint.config.yaml"
-    
+
     - name: Scan k8s manifests with kube-linter
       uses: stackrox/kube-linter-action@v1.0.2
       with:
