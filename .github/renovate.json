@@ -3,7 +3,6 @@
     "timezone": "Europe/Helsinki",
     "dependencyDashboard": true,
     "dependencyDashboardTitle": "Renovate Dashboard",
-    "commitMessageSuffix": "[skip ci]",
     "commitBody": "Signed-off-by: terotuomala",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
