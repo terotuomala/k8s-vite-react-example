@@ -1,4 +1,4 @@
-FROM node:16-alpine@sha256:e250bb9fbb7b7dfa462aff25deffe986e448e0177838fee8b69103810f06932b as build
+FROM node:16-alpine@sha256:697313d55634a94b36cc5cf75a687b210c7e4a8e433e64d80893bcfca9b11de8 as build
 
 RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
 
@@ -16,7 +16,7 @@ RUN npm run build
 # Run node prune
 RUN /usr/local/bin/node-prune
 
-FROM node:16-alpine@sha256:e250bb9fbb7b7dfa462aff25deffe986e448e0177838fee8b69103810f06932b AS release
+FROM node:16-alpine@sha256:697313d55634a94b36cc5cf75a687b210c7e4a8e433e64d80893bcfca9b11de8 AS release
 
 # Switch to non-root user uid=1000(node)
 USER node
