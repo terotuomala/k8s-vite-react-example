@@ -28,6 +28,7 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 # Set node loglevel
 ENV NPM_CONFIG_LOGLEVEL warn
+ENV NODE_OPTIONS --unhandled-rejections=warn
 
 # Install serve to /home/node/.npm-global/bin/serve directory
 RUN npm i -g serve
