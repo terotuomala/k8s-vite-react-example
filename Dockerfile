@@ -1,11 +1,6 @@
 FROM node:16-alpine@sha256:3bca55259ada636e5fee8f2836aba7fa01fed7afd0652e12773ad44af95868b9 as build
 
-RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
-
-# Install node-prune (https://github.com/tj/node-prune)
-RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
-
-COPY ["package.json", "package-lock.json*", "./"]
+COPY package.json package-lock.json ./
 
 RUN npm ci --production
 
@@ -13,8 +8,8 @@ COPY . .
 
 RUN npm run build
 
-# Run node prune
-RUN /usr/local/bin/node-prune
+RUN npm i -g serve
+
 
 FROM node:16-alpine@sha256:3bca55259ada636e5fee8f2836aba7fa01fed7afd0652e12773ad44af95868b9 AS release
 
@@ -23,19 +18,14 @@ USER node
 
 WORKDIR /home/node
 
-# Set global dependencies directory to node user
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-
 # Set node loglevel
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_OPTIONS --unhandled-rejections=warn
 
-# Install serve to /home/node/.npm-global/bin/serve directory
-RUN npm i -g serve
-
 COPY --chown=node:node --from=build /build ./build
 COPY --chown=node:node --from=build /serve.json ./build
+COPY --chown=node:node --from=build /usr/local/lib/node_modules/serve .npm-global/bin/serve
 
 EXPOSE 3000
 
-CMD ["/home/node/.npm-global/bin/serve", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
+CMD ["/home/node/.npm-global/bin/serve/bin/serve.js", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
