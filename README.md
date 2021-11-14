@@ -16,6 +16,7 @@ A simple example Single-page Application using Create React App running in Kuber
   * [SHA256 digest pinned Docker image tags](#sha256-digest-pinned-docker-image-tags)
   * [Automated Docker image and npm dependency updates](#automated-docker-image-and-npm-dependency-updates)
   * [Automated vulnerability scan](#automated-vulnerability-scan)
+  * [Static file Caching](#static-file-caching)
 * [Kustomize configuration](#pencil-kustomize-configuration)
 * [Local development](#keyboard-local-development)
 
