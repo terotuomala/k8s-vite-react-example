@@ -10,10 +10,18 @@ A simple example Single-page Application using Create React App running in Kuber
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
-* [Features](#rocket-features)
 * [Overview](#mag-overview)
+* [Features](#rocket-features)
+  * [Dockerfile optimization](#dockerfile-optimization)
+  * [SHA256 digest pinned Docker image tags](#sha256-digest-pinned-docker-image-tags)
+  * [Automated Docker image and npm dependency updates](#automated-docker-image-and-npm-dependency-updates)
+  * [Automated vulnerability scan](#automated-vulnerability-scan)
 * [Kustomize configuration](#pencil-kustomize-configuration)
 * [Local development](#keyboard-local-development)
+
+<!-- OVERVIEW -->
+## :mag: Overview
+In a nutshell the application provides a user interface for displaying most popular GitHub repositories which the [REST API](https://github.com/terotuomala/k8s-express-api-example) offers.
 
 <!-- FEATURES -->
 ## :rocket: Features
@@ -25,9 +33,20 @@ A simple example Single-page Application using Create React App running in Kuber
 - Kubernetes configuration customization using [Kustomize](https://github.com/kubernetes-sigs/kustomize)
 - Network traffic flow control using [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
 
-<!-- OVERVIEW -->
-## :mag: Overview
-In a nutshell the application provides a user interface for displaying most popular GitHub repositories which the [REST API](https://github.com/terotuomala/k8s-express-api-example) offers.
+### Dockerfile optimization
+In order to keep the Docker image size optimal a multi-stage builds is used. The application is bundled and build into production mode as well as `serve` is installed in the `build` stage. Only the `build` folder and `serve package` + `serve configuration` file are copied from the `build` state to `release` stage in order to have minimum sized layers. Only the layers from the `release` stage are pushed when the Docker image is build.
+
+### SHA256 digest pinned Docker images
+SHA256 digest pinning is used to achieve reliable and reproducable builds. Using digest as the image's primary identifier instead of using a tag makes sure that specific version of the image is used.
+
+### Docker image and npm dependency updates
+In order to receive Docker image and npm dependency updates [Renovate](https://docs.renovatebot.com) is used to create a pull request when: 
+
+- Newer digest from [node:16-alpine](https://hub.docker.com/_/node?tab=tags&page=1&name=16-alpine) is available on Docker Hub 
+- `Minor` or `Patch` update of a npm dependency is available 
+
+### Vulnerability scanning
+In order to regularly scan Docker image and npm dependencies for vulnerabilities a scheduled [job](https://github.com/terotuomala/k8s-express-api-example/blob/main/.github/workflows/vulnerability-scan.yml) is used to build the Docker image and scan it's content using [Trivy](https://github.com/aquasecurity/trivy).
 
 ## :pencil: Kustomize configuration
 Kustomize configuration is based on [Directory Structure Based Layout](https://kubectl.docs.kubernetes.io/pages/app_composition_and_deployment/structure_directories.html) in order to use staging and production environments with different configuration.
