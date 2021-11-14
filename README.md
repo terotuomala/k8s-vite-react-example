@@ -48,6 +48,9 @@ In order to receive Docker image and npm dependency updates [Renovate](https://d
 ### Vulnerability scanning
 In order to regularly scan Docker image and npm dependencies for vulnerabilities a scheduled [job](https://github.com/terotuomala/k8s-express-api-example/blob/main/.github/workflows/vulnerability-scan.yml) is used to build the Docker image and scan it's content using [Trivy](https://github.com/aquasecurity/trivy).
 
+### Static file Caching
+When building Create React App it makes sure that JavaScript and CSS files inside `build/static` folder will have a unique hash appended to the filename which makes possible to use [long term caching techniques](https://create-react-app.dev/docs/production-build/#static-file-caching). In order to avoid browser re-downloading the assets if the file contents haven't changed a `Cache-Control` headers defined in [serve.json](https://github.com/terotuomala/k8s-create-react-app-example/blob/main/serve.json) are used to control the length of time that the browser will cache the static assets. 
+
 ## :pencil: Kustomize configuration
 Kustomize configuration is based on [Directory Structure Based Layout](https://kubectl.docs.kubernetes.io/pages/app_composition_and_deployment/structure_directories.html) in order to use staging and production environments with different configuration.
 
