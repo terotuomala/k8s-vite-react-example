@@ -44,7 +44,7 @@ export const useApi = url => {
       .then((data) => {
         setPartData({
           state: apiStates.SUCCESS,
-          data: data.data,
+          data: data.data.data,
           responseTime: data.responseTime
         })
       })
