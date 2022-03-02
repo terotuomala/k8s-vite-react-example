@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "0.25.0",
+    "axios": "0.26.0",
     "framer-motion": "6.2.6",
     "react": "17.0.2",
     "react-countup": "6.1.1",
