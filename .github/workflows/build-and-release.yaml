@@ -65,7 +65,7 @@ jobs:
       run: |-
         ./kustomize edit set image IMAGE_NAME=${{env.IMAGE_NAME_GHCR_PREFIX}}:${{ github.sha }}
 
-    - uses: EndBug/add-and-commit@v8
+    - uses: EndBug/add-and-commit@v9
       with:
         add: 'k8s/staging/kustomization.yaml'
         message: New version release for client ${{ github.sha }}
