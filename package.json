@@ -5,9 +5,9 @@
   "dependencies": {
     "axios": "0.27.2",
     "framer-motion": "6.3.3",
-    "react": "18.0.0",
+    "react": "18.1.0",
     "react-countup": "6.2.0",
-    "react-dom": "18.0.0",
+    "react-dom": "18.1.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
