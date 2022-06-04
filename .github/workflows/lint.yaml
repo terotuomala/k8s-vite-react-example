@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [14]
+        node: [16]
 
     steps:
     - name: Checkout
@@ -27,10 +27,15 @@ jobs:
         file_or_dir: "./k8s"
         config_file: "./.github/yamllint.config.yaml"
 
+    - name: Build the k8s manifests using Kustomize
+      working-directory: k8s/staging
+      run: |-
+        ./kustomize build > staging-manifests.yaml
+
     - name: Scan k8s manifests with kube-linter
       uses: stackrox/kube-linter-action@v1.0.4
       with:
-        directory: "./k8s"
+        directory: "./k8s/staging/staging-manifests.yaml"
 
     - name: Setup Node.js ${{ matrix.node }}
       uses: actions/setup-node@v3
