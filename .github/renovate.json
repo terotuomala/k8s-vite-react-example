@@ -15,20 +15,22 @@
     "packageRules": [
       {
         "matchDatasources": ["docker"],
-        "matchPackageNames": ["node/14-alpine"],
+        "matchPackageNames": ["node/16-alpine"],
         "matchUpdateTypes": ["digest"],
         "commitMessageTopic": "container image {{depName}}",
         "commitMessageExtra": "to {{#if isSingleVersion}}v{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}",
         "labels": ["renovate/image-release", "dependency/digest"],
         "pinDigests": true,
-        "enabled": true
+        "enabled": true,
+        "automerge": true
 
       },
       {
         "matchDatasources": ["npm"],
         "matchDepTypes": ["dependencies", "devDependencies"],
         "updateTypes": ["minor", "patch"],
-        "enabled": true
+        "enabled": true,
+        "automerge": true
       }
     ]
   }
