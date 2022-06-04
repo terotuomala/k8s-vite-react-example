@@ -30,6 +30,13 @@ jobs:
         file_or_dir: "./k8s"
         config_file: "./.github/yamllint.config.yaml"
 
+    - name: Set up Kustomize
+      working-directory: k8s/staging
+      run: |-
+        curl -O -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/${{env.KUSTOMIZE_VERSION}}/kustomize_${{env.KUSTOMIZE_VERSION}}_linux_amd64.tar.gz
+        tar xzf ./kustomize_${{env.KUSTOMIZE_VERSION}}_linux_amd64.tar.gz
+        chmod u+x ./kustomize
+
     - name: Build the k8s manifests using Kustomize
       working-directory: k8s/staging
       run: |-
