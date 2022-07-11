@@ -1,4 +1,4 @@
-FROM node:16-alpine@sha256:554142f9a6367f1fbd776a1b2048fab3a2cc7aa477d7fe9c00ce0f110aa45716 as build
+FROM node:16-slim@sha256:5e3ddc55cd91f01f89ccfd8b537620755db80a1e7e4a22e66e729b903751634c as build
 
 COPY package.json package-lock.json ./
 
@@ -11,7 +11,7 @@ RUN npm run build
 RUN npm i -g serve
 
 
-FROM node:16-alpine@sha256:554142f9a6367f1fbd776a1b2048fab3a2cc7aa477d7fe9c00ce0f110aa45716 AS release
+FROM node:16-slim@sha256:5e3ddc55cd91f01f89ccfd8b537620755db80a1e7e4a22e66e729b903751634c AS release
 
 # Switch to non-root user uid=1000(node)
 USER node
