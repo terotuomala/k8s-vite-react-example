@@ -12,12 +12,6 @@ patchesJson6902:
     kind: HorizontalPodAutoscaler
     name: client
     version: v2beta1
-- path: pdb-patch.yaml
-  target:
-    group: policy
-    kind: PodDisruptionBudget
-    name: client
-    version: v1beta1
 
 images:
 - name: IMAGE_NAME
