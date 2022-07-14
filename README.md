@@ -73,9 +73,6 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
 │   ├── netpol-ingress.yaml
 │   ├── pdb.yaml
 │   └── service.yaml
-├── production
-│   ├── kustomization.yaml
-│   └── namespace.yaml
 └── staging
     ├── hpa-patch.yaml
     ├── kustomization.yaml
