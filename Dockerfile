@@ -28,4 +28,4 @@ COPY --chown=node:node --from=build /usr/local/lib/node_modules/serve .npm-globa
 
 EXPOSE 3000
 
-CMD ["/home/node/.npm-global/bin/serve/bin/serve.js", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
+CMD ["/home/node/.npm-global/bin/serve/build/main.js", "-s", "build", "-c", "serve.json", "-l", "3000", "-n"]
