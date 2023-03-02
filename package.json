@@ -6,7 +6,7 @@
     "axios": "1.2.3",
     "framer-motion": "7.10.3",
     "react": "18.2.0",
-    "react-countup": "6.4.0",
+    "react-countup": "6.4.1",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"
   },
