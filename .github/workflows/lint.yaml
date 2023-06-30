@@ -7,16 +7,16 @@ on:
     branches: [main]
 
 env:
-    KUSTOMIZE_VERSION: v3.9.3
+    KUSTOMIZE_VERSION: v5.1.0
 
 jobs:
   lint-yaml:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     strategy:
       matrix:
-        node: [16]
+        node: [20]
 
     steps:
     - name: Checkout
@@ -46,6 +46,7 @@ jobs:
       uses: stackrox/kube-linter-action@v1.0.4
       with:
         directory: "./k8s/staging/staging-manifests.yaml"
+        config: .github/kube-linter.yaml
 
     - name: Setup Node.js ${{ matrix.node }}
       uses: actions/setup-node@v3

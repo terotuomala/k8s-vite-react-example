@@ -1,0 +1,10 @@
+checks:
+  addAllBuiltIn: true
+  exclude:
+    - "default-service-account"
+    - "dnsconfig-options"
+    - "minimum-three-replicas"
+    - "required-annotation-email"
+    - "required-label-owner"
+    - "hpa-minimum-three-replicas"
+    - "pdb-min-available"
