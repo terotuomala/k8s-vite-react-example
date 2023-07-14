@@ -16,4 +16,4 @@ patchesJson6902:
 images:
 - name: IMAGE_NAME
   newName: ghcr.io/terotuomala/client
-  newTag: 79690b630aeaf0fa7ba719f277dd87bff55e700b
+  newTag: 01c58b5e9f21b6b02a724535d9b20dd3e9a8269d
