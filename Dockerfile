@@ -1,4 +1,4 @@
-FROM node:21-slim@sha256:3129012701c02c7eb1db845f24a36223857c8ebdfd43a28569aa3f42d318f9de as build
+FROM node:21-slim@sha256:0d03aaff72f2cd87a243f1e4b07a9f5267423baec72318cc1ffdb155ff7c2eb2 as build
 
 COPY package.json package-lock.json ./
 
@@ -11,7 +11,7 @@ RUN npm run build
 RUN npm i -g serve
 
 
-FROM node:21-slim@sha256:3129012701c02c7eb1db845f24a36223857c8ebdfd43a28569aa3f42d318f9de AS release
+FROM node:21-slim@sha256:0d03aaff72f2cd87a243f1e4b07a9f5267423baec72318cc1ffdb155ff7c2eb2 AS release
 
 # Switch to non-root user uid=1000(node)
 USER node
