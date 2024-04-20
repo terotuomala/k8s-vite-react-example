@@ -53,7 +53,7 @@ In order to receive Docker image and npm dependency updates [Renovate](https://d
 In order to regularly scan Docker image and npm dependencies for vulnerabilities a scheduled [job](https://github.com/terotuomala/k8s-express-api-example/blob/main/.github/workflows/vulnerability-scan.yml) is used to build the Docker image and scan it's content using [Trivy](https://github.com/aquasecurity/trivy).
 
 ### Static file Caching
-When building Create React App it makes sure that JavaScript and CSS files inside `build/static` folder will have a unique hash appended to the filename which makes possible to use [long term caching techniques](https://create-react-app.dev/docs/production-build/#static-file-caching):
+When building Create React App it makes sure that JavaScript and CSS files inside `dist/assets` folder will have a unique hash appended to the filename which makes possible to use [long term caching techniques](https://create-react-app.dev/docs/production-build/#static-file-caching):
 
 - `Cache-Control: max-age=31536000` for `dist/assets`
 - `Cache-Control: no-cache` for `index.html` 
