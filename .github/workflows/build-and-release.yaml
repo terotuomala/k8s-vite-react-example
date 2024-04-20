@@ -11,6 +11,8 @@ env:
     IMAGE_NAME_GHCR_PREFIX: ghcr.io/${{ github.repository_owner }}/client
     KUSTOMIZE_VERSION: v5.4.1
 
+permissions: read-all    
+
 jobs:
   build:
     name: Build

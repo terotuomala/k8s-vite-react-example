@@ -9,6 +9,8 @@ on:
 env:
     KUSTOMIZE_VERSION: v5.4.1
 
+permissions: read-all
+
 jobs:
   lint-yaml:
     runs-on: ubuntu-22.04
