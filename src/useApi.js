@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 axios.interceptors.request.use( x => {
@@ -26,35 +26,47 @@ export const apiStates = {
 }
 
 export const useApi = url => {
-  const [data, setData] = React.useState({
+  const [data, setData] = useState({
     state: apiStates.LOADING,
     error: '',
     responseTime: '',
     data: [],
   })
 
-  const setPartData = (partialData) => setData({ ...data, ...partialData })
+  useEffect(() => {
+    let didCancel = false;
 
-  React.useEffect(() => {
-    setPartData({
-      state: apiStates.LOADING,
-    })
-     axios.get(url)
-      .then((response) => response)
-      .then((data) => {
-        setPartData({
-          state: apiStates.SUCCESS,
-          data: data.data.data,
-          responseTime: data.responseTime
-        })
-      })
-      .catch(() => {
-       setPartData({
-          state: apiStates.ERROR,
-          error: 'Fetch failed'
-        })
-      })
-  }, [])
+    const fetchData = async () => {
+      setData(prevData => ({ ...prevData, state: apiStates.LOADING }))
+      
+      try {
+        const response = await axios.get(url)
+        if (!didCancel) {
+          setData({
+            state: apiStates.SUCCESS,
+            data: response.data.data,
+            responseTime: response.responseTime,
+            error: ''
+          });
+        }
+      } catch (error) {
+        if (!didCancel) {
+          setData(prevData => ({
+            ...prevData,
+            state: apiStates.ERROR,
+            error: 'Fetch failed',
+            data: [],
+          }));
+        }
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      didCancel = true
+    };
+  }, [url])
 
   return data
 }

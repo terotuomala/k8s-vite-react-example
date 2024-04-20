@@ -6,7 +6,7 @@ import { apiStates, useApi } from './useApi.js'
 import './App.css'
 
 const App = () => {
-  const { state, error, data, responseTime } = useApi(process.env.REACT_APP_API_URL)
+  const { state, error, data, responseTime } = useApi(import.meta.env.VITE_REACT_APP_API_URL)
 
   const container = {
     hidden: { opacity: 0 },

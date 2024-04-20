@@ -9,7 +9,7 @@ on:
 env:
     IMAGE_NAME_PREFIX: ${{ github.repository_owner }}/client
     IMAGE_NAME_GHCR_PREFIX: ghcr.io/${{ github.repository_owner }}/client
-    KUSTOMIZE_VERSION: v5.1.0
+    KUSTOMIZE_VERSION: v5.4.1
 
 jobs:
   build:

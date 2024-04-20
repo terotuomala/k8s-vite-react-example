@@ -1,4 +1,4 @@
-# Kubernetes Create React App Example
+# Kubernetes Vite + React Example App
 
 [![Build and Release](https://github.com/terotuomala/k8s-create-react-app-example/workflows/build-and-release/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
 [![Vulnerability Scan](https://github.com/terotuomala/k8s-create-react-app-example/workflows/vulnerability-scan/badge.svg)](https://github.com/terotuomala/k8s-create-react-app-example/actions)
@@ -36,8 +36,8 @@ In a nutshell the application provides a user interface for displaying most popu
 
 ### Dockerfile optimization
 - In order to keep the Docker image size optimal a multi-stage builds is used
-- The application is bundled and build into production mode as well as `serve` is installed in the `build` stage. 
-- Only the `build` folder and `serve package` + `serve configuration` file are copied from the `build` state to `release` stage in order to have minimum sized layers
+- The application is bundled and build into production mode as well as `serve` is installed in the `base` stage. 
+- Only the `dist` folder and `serve` related files are copied from the `base` state to `release` stage in order to have minimum sized layers
 - Only the layers from the `release` stage are pushed when the Docker image is build
 
 ### SHA256 digest pinned Docker images
@@ -46,8 +46,8 @@ SHA256 digest pinning is used to achieve reliable and reproducable builds. Using
 ### Docker image and npm dependency updates
 In order to receive Docker image and npm dependency updates [Renovate](https://docs.renovatebot.com) is used to create a pull request when: 
 
-- Newer digest from [node:20-slim](https://hub.docker.com/_/node?tab=tags&page=1&name=20-slim) is available on Docker Hub 
-- `Minor` or `Patch` update of a npm dependency is available 
+- Newer digest from [chainguard/node-lts](https://hub.docker.com/r/chainguard/node-lts/tags) is available on Docker Hub 
+- `Minor` or `Patch` update of a npm dependency is available
 
 ### Vulnerability scanning
 In order to regularly scan Docker image and npm dependencies for vulnerabilities a scheduled [job](https://github.com/terotuomala/k8s-express-api-example/blob/main/.github/workflows/vulnerability-scan.yml) is used to build the Docker image and scan it's content using [Trivy](https://github.com/aquasecurity/trivy).
@@ -55,7 +55,7 @@ In order to regularly scan Docker image and npm dependencies for vulnerabilities
 ### Static file Caching
 When building Create React App it makes sure that JavaScript and CSS files inside `build/static` folder will have a unique hash appended to the filename which makes possible to use [long term caching techniques](https://create-react-app.dev/docs/production-build/#static-file-caching):
 
-- `Cache-Control: max-age=31536000` for `build/static`
+- `Cache-Control: max-age=31536000` for `dist/assets`
 - `Cache-Control: no-cache` for `index.html` 
 
 are used to avoid browser re-downloading the assets if the file contents haven't changed and to make sure that updated `index.html` is always used. The headers are defined in [serve.json](https://github.com/terotuomala/k8s-create-react-app-example/blob/main/serve.json). 
@@ -84,5 +84,5 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
 ## :keyboard: Local development
 Start the app in development mode which will automatically reload if you make changes to the code:
 ```sh
-$ npm start
+$ pnpm run dev
 ```
