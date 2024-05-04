@@ -6,7 +6,7 @@
 
 > :information_source: This project is a part of [GitOps workflow example using Flux2](https://github.com/terotuomala/gitops-flux2-example) which includes Kubernetes manifests for NGINX Ingress Controller as well as handles Continuous Delivery.
 
-A simple example Single-page Application using Create React App running in Kubernetes.
+A simple example Single-page Application for Kubernetes using Vite + React.
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
