@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.2
         version: 1.7.2
       framer-motion:
-        specifier: 11.3.13
-        version: 11.3.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 11.3.17
+        version: 11.3.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -692,8 +692,8 @@ packages:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
 
-  framer-motion@11.3.13:
-    resolution: {integrity: sha512-5sKVDYia30MW6fqRex4RZ8lBvloOzMD+uLy9sTlgUYgnAeez1uJ3anZYaJZURt1rxy7NVI8ypZt1o41wn4vSGw==}
+  framer-motion@11.3.17:
+    resolution: {integrity: sha512-LZcckvZL8Rjod03bud8LQcp+R0PLmWIlOSu+NVc+v6Uh43fQr4IBsEAX7sSn7CdBQ1L0fZ/IqSXZVPnGFSMxHw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -1953,7 +1953,7 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  framer-motion@11.3.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@11.3.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       tslib: 2.6.2
     optionalDependencies:
