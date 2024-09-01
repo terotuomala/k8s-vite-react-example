@@ -46,7 +46,7 @@ SHA256 digest pinning is used to achieve reliable and reproducable builds. Using
 ### Docker image and npm dependency updates
 In order to receive Docker image and npm dependency updates [Renovate](https://docs.renovatebot.com) is used to create a pull request when: 
 
-- Newer digest from [chainguard/node-lts](https://hub.docker.com/r/chainguard/node-lts/tags) is available on Docker Hub 
+- Newer digest from [chainguard/node](https://registry.hub.docker.com/r/chainguard/node/tags) is available on Docker Hub 
 - `Minor` or `Patch` update of a npm dependency is available
 
 ### Vulnerability scanning
