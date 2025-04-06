@@ -19,6 +19,7 @@ spec:
       labels:
         app: client
     spec:
+      restartPolicy: Always
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
