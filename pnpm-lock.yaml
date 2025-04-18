@@ -32,7 +32,7 @@ importers:
         version: 19.1.2(@types/react@19.1.2)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.9.0(vite@6.3.1)
+        version: 3.9.0(vite@6.3.2)
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -47,7 +47,7 @@ importers:
         version: 0.4.19(eslint@8.57.1)
       vite:
         specifier: ^6.0.0
-        version: 6.3.1
+        version: 6.3.2
 
 packages:
 
@@ -1322,8 +1322,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  vite@6.3.1:
-    resolution: {integrity: sha512-kkzzkqtMESYklo96HKKPE5KKLkC1amlsqt+RjFMlX2AvbRB/0wghap19NdBxxwGZ+h/C6DLCrcEphPIItlGrRQ==}
+  vite@6.3.2:
+    resolution: {integrity: sha512-ZSvGOXKGceizRQIZSz7TGJ0pS3QLlVY/9hwxVh17W3re67je1RKYzFHivZ/t0tubU78Vkyb9WnHPENSBCzbckg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -1642,10 +1642,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react-swc@3.9.0(vite@6.3.1)':
+  '@vitejs/plugin-react-swc@3.9.0(vite@6.3.2)':
     dependencies:
       '@swc/core': 1.11.21
-      vite: 6.3.1
+      vite: 6.3.2
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -2791,7 +2791,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite@6.3.1:
+  vite@6.3.2:
     dependencies:
       esbuild: 0.25.2
       fdir: 6.4.3(picomatch@4.0.2)
