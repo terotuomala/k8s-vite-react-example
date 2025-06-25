@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:lts-slim@sha256:b1de8efb27062d48cfdfd666d812ef196ee53d8dc85c87ef95060fe94f6f5d47 as base
+FROM node:lts-slim@sha256:b5326b246dec74832942895ca72d2a091cbffd2e8c5289b74a19e84b0f62aaa1 as base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
