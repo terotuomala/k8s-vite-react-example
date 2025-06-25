@@ -46,7 +46,7 @@ jobs:
         ./kustomize build > staging-manifests.yaml
 
     - name: Scan k8s manifests with kube-linter
-      uses: stackrox/kube-linter-action@v1.0.6
+      uses: stackrox/kube-linter-action@v1.0.7
       with:
         directory: "./k8s/staging/staging-manifests.yaml"
         config: .github/kube-linter.yaml
