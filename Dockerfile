@@ -27,7 +27,7 @@ COPY . .
 RUN pnpm run build
 
 
-FROM chainguard/node@sha256:7cd2ca1eb5c25f15c44d76bc573eec1605ee458ca833b9c600fdda79a0446b6e as release
+FROM chainguard/node@sha256:4f58d2d01f9694394a8a2513e6fabbe5cc8c47d14b0c7a6709a234880b1193a1 as release
 
 # Non-root user uid=65532(node) is used by default
 USER node
