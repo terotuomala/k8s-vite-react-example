@@ -12,8 +12,8 @@ importers:
         specifier: 1.13.2
         version: 1.13.2
       framer-motion:
-        specifier: 12.24.7
-        version: 12.24.7(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: 12.24.8
+        version: 12.24.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react:
         specifier: ^19.0.0
         version: 19.2.3
@@ -887,8 +887,8 @@ packages:
     resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
     engines: {node: '>= 6'}
 
-  framer-motion@12.24.7:
-    resolution: {integrity: sha512-EolFLm7NdEMhWO/VTMZ0LlR4fLHGDiJItTx3i8dlyQooOOBoYAaysK4paGD4PrwqnoDdeDOS+TxnSBIAnNHs3w==}
+  framer-motion@12.24.8:
+    resolution: {integrity: sha512-Pfr3xVnpck27DzpEfl0iAPcXFCmVh1rCXk74iEBN5AVCoL3DdPg0qL8pLeTndVI4s81GprhiTHHfSeKOu4xY2A==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -1186,8 +1186,8 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
-  motion-dom@12.24.3:
-    resolution: {integrity: sha512-ZjMZCwhTglim0LM64kC1iFdm4o+2P9IKk3rl/Nb4RKsb5p4O9HJ1C2LWZXOFdsRtp6twpqWRXaFKOduF30ntow==}
+  motion-dom@12.24.8:
+    resolution: {integrity: sha512-wX64WITk6gKOhaTqhsFqmIkayLAAx45SVFiMnJIxIrH5uqyrwrxjrfo8WX9Kh8CaUAixjeMn82iH0W0QT9wD5w==}
 
   motion-utils@12.23.28:
     resolution: {integrity: sha512-0W6cWd5Okoyf8jmessVK3spOmbyE0yTdNKujHctHH9XdAE4QDuZ1/LjSXC68rrhsJU+TkzXURC5OdSWh9ibOwQ==}
@@ -2468,9 +2468,9 @@ snapshots:
       hasown: 2.0.2
       mime-types: 2.1.35
 
-  framer-motion@12.24.7(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  framer-motion@12.24.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
-      motion-dom: 12.24.3
+      motion-dom: 12.24.8
       motion-utils: 12.23.28
       tslib: 2.6.2
     optionalDependencies:
@@ -2773,7 +2773,7 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.11
 
-  motion-dom@12.24.3:
+  motion-dom@12.24.8:
     dependencies:
       motion-utils: 12.23.28
 
