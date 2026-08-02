@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       axios:
-        specifier: 1.18.0
-        version: 1.18.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+        specifier: 1.19.0
+        version: 1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       motion:
         specifier: 12.38.0
         version: 12.38.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -655,8 +655,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.18.0:
-    resolution: {integrity: sha512-E32NzpYKp++W7XRe52rHiXV2ehxmh3wbdgO7MHeFM+vqxLBYHzt0ElkiImtOBxtOmyp0yoC8C6uESVV84Y2/hw==}
+  axios@1.19.0:
+    resolution: {integrity: sha512-ht/iuYZXEjFxLH/Hkezgd7m6JKlHHXEUSneaDz8uZe1Gj5QZtCnpyDsckvAiEnT89OEbCLmnte4R4sn7P0EKFw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -929,8 +929,8 @@ packages:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 
-  form-data@4.0.5:
-    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
+  form-data@4.0.6:
+    resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
     engines: {node: '>= 6'}
 
   framer-motion@12.38.0:
@@ -1029,6 +1029,10 @@ packages:
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
+    engines: {node: '>= 0.4'}
+
+  hasown@2.0.4:
+    resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
   hermes-estree@0.25.1:
@@ -2056,7 +2060,7 @@ snapshots:
 
   agent-base@6.0.2(supports-color@7.2.0):
     dependencies:
-      debug: 4.3.7(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -2138,10 +2142,10 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios@1.18.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
+  axios@1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       follow-redirects: 1.16.0(debug@4.4.3(supports-color@7.2.0))
-      form-data: 4.0.5
+      form-data: 4.0.6
       https-proxy-agent: 5.0.1(supports-color@7.2.0)
       proxy-from-env: 2.1.0
     transitivePeerDependencies:
@@ -2552,12 +2556,12 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  form-data@4.0.5:
+  form-data@4.0.6:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
-      hasown: 2.0.2
+      hasown: 2.0.4
       mime-types: 2.1.35
 
   framer-motion@12.38.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
@@ -2661,6 +2665,10 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  hasown@2.0.4:
+    dependencies:
+      function-bind: 1.1.2
+
   hermes-estree@0.25.1: {}
 
   hermes-parser@0.25.1:
@@ -2670,7 +2678,7 @@ snapshots:
   https-proxy-agent@5.0.1(supports-color@7.2.0):
     dependencies:
       agent-base: 6.0.2(supports-color@7.2.0)
-      debug: 4.3.7(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
